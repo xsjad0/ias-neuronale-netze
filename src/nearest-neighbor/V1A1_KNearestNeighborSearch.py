@@ -16,7 +16,7 @@ def getKNearestNeighbors(x, X, k=1):
     for index in np.nditer(np.arange(len(X))):  # iterate through matrix X
         d.append(np.linalg.norm(X[index]-x))  # get euklidean distance
 
-    return np.argsort(d)[:2]  # indexes of k smallest distances
+    return np.argsort(d)[:k]  # indexes of k smallest distances
 
 # ***** MAIN PROGRAM ********
 

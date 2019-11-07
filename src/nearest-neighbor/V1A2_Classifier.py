@@ -2,7 +2,7 @@
 # Python Module for Classification Algorithms
 # Programmgeruest zu Versuch 1, Aufgabe 2
 import numpy as np
-import scipy.spatial
+import scipy.spatial as sp
 from random import randint
 
 # ----------------------------------------------------------------------------------------- 
@@ -121,9 +121,14 @@ class KNNClassifier(Classifier):
         :param k: number of nearest-neighbors to be returned
         :return: list of k line indexes referring to the k nearest neighbors of x in X
         """
-        if(k==None): k=self.k                      # per default use stored k 
-        if(X==None): X=self.X                      # per default use stored X
-        return k*[0]                               # REPLACE: Insert/adapt your code from V1A1_KNearestNeighborSearch.py
+        if(k==None): k=self.k                       # per default use stored k 
+        if(X==None): X=self.X                       # per default use stored X
+
+        d = []                                      # init empty list
+        for index in np.nditer(np.arange(len(X))):  # iterate through matrix X
+            d.append(np.linalg.norm(X[index]-x))    # get euklidean distance
+
+        return np.argsort(d)[:k]                    # indexes of k smallest distances
 
     def predict(self,x,k=None):
         """ 
@@ -135,10 +140,13 @@ class KNNClassifier(Classifier):
         :returns pClassPosteriori: A-Posteriori probabilities, pClassPosteriori[i] is probability that x belongs to class i
         :returns idxKNN: indexes of the k nearest neighbors (ordered w.r.t. ascending distance) 
         """
-        if k==None: k=self.k                       # use default parameter k?
+        if (k==None): k=self.k                     # use default parameter k?
         idxKNN = self.getKNearestNeighbors(x,k)    # get indexes of k nearest neighbors of x
-        prediction=0                               # REPLACE DUMMY CODE BY YOUR OWN CODE!
-        pClassPosteriori=self.C*[1.0/self.C]       # REPLACE DUMMY CODE BY YOUR OWN CODE!
+        labels, count = np.unique(self.T[idxKNN], return_counts=True)
+        indices = np.where(count == np.amax(count))
+        random_index = np.random.choice(indices[0])
+        prediction = labels[random_index]
+        pClassPosteriori = [count[index]/k*100 if (count[index] != 0) else 0 for index in range(np.size(labels))]
         return prediction, pClassPosteriori, idxKNN  # return predicted class, a-posteriori-distribution, and indexes of nearest neighbors
 
 
@@ -167,7 +175,7 @@ class FastKNNClassifier(KNNClassifier):
         :returns: - 
         """
         KNNClassifier.fit(self,X,T)                # call to parent class method (just store X and T)
-        self.kdtree = None                         # REPLACE DUMMY CODE BY YOUR OWN CODE! Do an indexing of the feature vectors by constructing a kd-tree
+        self.kdtree = sp.KDTree(X,k)               # Do an indexing of the feature vectors by constructing a kd-tree
         
     def getKNearestNeighbors(self, x, k=None):  # realizes fast K-nearest-neighbor-search of x in data set X
         """
@@ -177,8 +185,8 @@ class FastKNNClassifier(KNNClassifier):
         :return idxNN: return list of k line indexes referring to the k nearest neighbors of x in X
         """
         if(k==None): k=self.k                      # do a K-NN search...
-        idxNN = k*[0]                              # REPLACE DUMMY CODE BY YOUR OWN CODE! Compute nearest neighbors using the KD-Tree
-        return idxNN                               # return indexes of k nearest neighbors
+        idxNN = self.kdtree.query(x, k)            # Compute nearest neighbors using the KD-Tree
+        return idxNN[1]                            # return indexes of k nearest neighbors
 
 
 
@@ -192,13 +200,17 @@ if __name__ == '__main__':
     X = np.array([[1,2,3],[2,3,4],[3,4,5],[4,5,6]]);      # data matrix X: list of data vectors (=database) of dimension D=3
     T = np.array([0,1,0,1]);                              # target values aka class labels
     x = np.array([1.5,3.6,5.7]);                          # a test data vector
+    d = []  # init empty list
+    for index in np.nditer(np.arange(len(X))):  # iterate through matrix X
+        d.append(np.linalg.norm(X[index]-x))  # get euklidean distance
+
     print("Data matrix X=\n",X)
     print("Class labels T=\n",T)
     print("Test vector x=",x)
-    print("Euklidean distances d=",[])                     # REPLACE DUMMY CODE (IF YOU WANT) ...
+    print("Euklidean distances d=", d)
 
     # (ii) Train simple KNN-Classifier
-    knnc = KNNClassifier()         # construct kNN Classifier
+    knnc = KNNClassifier(C=2, k=1)         # construct kNN Classifier  
     knnc.fit(X,T)                  # train with given data
 
     # (iii) Classify test vector x
@@ -210,4 +222,12 @@ if __name__ == '__main__':
     print("Indexes of the k=",k," nearest neighbors: idx_knn=",idx_knn)
 
     # (iv) Repeat steps (ii) and (iii) for the FastKNNClassifier (based on KD-Trees)
-    # INSERT YOUR CODE
+    # (ii) Train simple FKNN-Classifier
+    fknnc = FastKNNClassifier(C=2, k=1)
+    fknnc.fit(X,T)
+    # (iii) Classify test vector x
+    c, pc, idx_knn = fknnc.predict(x, k)
+    print("\nClassification with the naive KNN-classifier:")
+    print("Test vector is most likely from class ", c)
+    print("A-Posteriori Class Distribution: prob(x is from class i)=", pc)
+    print("Indexes of the k=", k, " nearest neighbors: idx_knn=", idx_knn)
