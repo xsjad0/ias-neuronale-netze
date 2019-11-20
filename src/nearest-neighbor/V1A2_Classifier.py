@@ -175,7 +175,7 @@ class FastKNNClassifier(KNNClassifier):
         :returns: - 
         """
         KNNClassifier.fit(self,X,T)                # call to parent class method (just store X and T)
-        self.kdtree = sp.KDTree(X,k)               # Do an indexing of the feature vectors by constructing a kd-tree
+        self.kdtree = sp.KDTree(X)               # Do an indexing of the feature vectors by constructing a kd-tree
         
     def getKNearestNeighbors(self, x, k=None):  # realizes fast K-nearest-neighbor-search of x in data set X
         """
