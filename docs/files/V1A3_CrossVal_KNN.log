@@ -1,0 +1,181 @@
+Data size: N= 1000 , D= 2
+
+Naive KNN Classifier: 
+------------------------
+S= 1  fold Cross-Validation of naive  1 -NN-Classifier requires  15.8900945  seconds. Confusion error probability matrix is 
+ [[1. 0.]
+ [0. 1.]]
+Probability of a classification error is pE =  0.0
+New data vector x_test= [2 1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 1  fold Cross-Validation of fast  1 -NN-Classifier requires  0.5883608000000002  seconds. Confusion error probability matrix is 
+ [[1. 0.]
+ [0. 1.]]
+Probability of a classification error is pE =  0.0
+New data vector x_test= [2 1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 2  fold Cross-Validation of naive  1 -NN-Classifier requires  7.568036500000002  seconds. Confusion error probability matrix is 
+ [[0.778 0.182]
+ [0.222 0.818]]
+Probability of a classification error is pE =  0.202
+New data vector x_test= [2 1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 2  fold Cross-Validation of fast  1 -NN-Classifier requires  0.3302516000000004  seconds. Confusion error probability matrix is 
+ [[0.806 0.178]
+ [0.194 0.822]]
+Probability of a classification error is pE =  0.186
+New data vector x_test= [2 1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 5  fold Cross-Validation of naive  1 -NN-Classifier requires  10.621064600000004  seconds. Confusion error probability matrix is 
+ [[0.788 0.176]
+ [0.212 0.824]]
+Probability of a classification error is pE =  0.194
+New data vector x_test= [2 1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 5  fold Cross-Validation of fast  1 -NN-Classifier requires  0.3685811000000001  seconds. Confusion error probability matrix is 
+ [[0.796 0.196]
+ [0.204 0.804]]
+Probability of a classification error is pE =  0.2
+New data vector x_test= [2 1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 1  fold Cross-Validation of naive  5 -NN-Classifier requires  14.854227800000004  seconds. Confusion error probability matrix is 
+ [[0.884 0.11 ]
+ [0.116 0.89 ]]
+Probability of a classification error is pE =  0.113
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [40.0, 60.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 1  fold Cross-Validation of fast  5 -NN-Classifier requires  0.9785260000000022  seconds. Confusion error probability matrix is 
+ [[0.884 0.11 ]
+ [0.116 0.89 ]]
+Probability of a classification error is pE =  0.113
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [40.0, 60.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 2  fold Cross-Validation of naive  5 -NN-Classifier requires  8.0569657  seconds. Confusion error probability matrix is 
+ [[0.846 0.144]
+ [0.154 0.856]]
+Probability of a classification error is pE =  0.149
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [40.0, 60.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 2  fold Cross-Validation of fast  5 -NN-Classifier requires  0.4525569000000047  seconds. Confusion error probability matrix is 
+ [[0.848 0.12 ]
+ [0.152 0.88 ]]
+Probability of a classification error is pE =  0.136
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [40.0, 60.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 5  fold Cross-Validation of naive  5 -NN-Classifier requires  10.865313400000005  seconds. Confusion error probability matrix is 
+ [[0.84  0.152]
+ [0.16  0.848]]
+Probability of a classification error is pE =  0.156
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [40.0, 60.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 5  fold Cross-Validation of fast  5 -NN-Classifier requires  0.4895673000000045  seconds. Confusion error probability matrix is 
+ [[0.834 0.152]
+ [0.166 0.848]]
+Probability of a classification error is pE =  0.159
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [40.0, 60.0]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 1  fold Cross-Validation of naive  11 -NN-Classifier requires  13.274373699999998  seconds. Confusion error probability matrix is 
+ [[0.87  0.128]
+ [0.13  0.872]]
+Probability of a classification error is pE =  0.129
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [45.45454545454545, 54.54545454545454]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 1  fold Cross-Validation of fast  11 -NN-Classifier requires  0.6262495999999942  seconds. Confusion error probability matrix is 
+ [[0.87  0.128]
+ [0.13  0.872]]
+Probability of a classification error is pE =  0.129
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [45.45454545454545, 54.54545454545454]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 2  fold Cross-Validation of naive  11 -NN-Classifier requires  8.153934399999997  seconds. Confusion error probability matrix is 
+ [[0.848 0.132]
+ [0.152 0.868]]
+Probability of a classification error is pE =  0.142
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [45.45454545454545, 54.54545454545454]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 2  fold Cross-Validation of fast  11 -NN-Classifier requires  0.8696846999999934  seconds. Confusion error probability matrix is 
+ [[0.874 0.126]
+ [0.126 0.874]]
+Probability of a classification error is pE =  0.126
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [45.45454545454545, 54.54545454545454]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Naive KNN Classifier: 
+------------------------
+S= 5  fold Cross-Validation of naive  11 -NN-Classifier requires  13.60735249999999  seconds. Confusion error probability matrix is 
+ [[0.856 0.122]
+ [0.144 0.878]]
+Probability of a classification error is pE =  0.133
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [45.45454545454545, 54.54545454545454]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
+
+Fast KNN Classifier based on KD-Trees: 
+---------------------------------------
+S= 5  fold Cross-Validation of fast  11 -NN-Classifier requires  0.5467806999999993  seconds. Confusion error probability matrix is 
+ [[0.864 0.136]
+ [0.136 0.864]]
+Probability of a classification error is pE =  0.136
+New data vector x_test= [2 1]  is most likely from class  1 ; class probabilities are p_class =  [45.45454545454545, 54.54545454545454]
+New data vector x_test= [5 1]  is most likely from class  1 ; class probabilities are p_class =  [100.0]
+New data vector x_test= [-1  1]  is most likely from class  0 ; class probabilities are p_class =  [100.0]
