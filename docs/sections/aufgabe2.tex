@@ -12,9 +12,13 @@
 
 \subsection{Die Klasse \textit{KNNClassifier}}
 
-
 \subsubsection{Wie lernt ein k-NN-Klassifikator?}
 
+Der k-NN Klassifikator bestimmt die euklidische Distanz der k nächsten, bereits klassifizierten Nachbarn zu einem Merkmalsvektor.  Der Merkmalsvektor wird der Klasse zugewiesen, welche unter der k Nachbarn am häufigsten vorkommt. 
+
+\vspace{5px}
+\noindent
+\textit{fit(self,X,T)} prüft, ob die Matrizen \textit{X(Trainingsdaten)} und \textit{T(Klassenlabels)} die richtigen Dimensionen haben und speichert die Anzahl der Labels in \textit{self.C}.
 
 \subsubsection{
     Implementierung der Methode \textit{getKNearestNeighbors(self, x, k=None, X=None)}
@@ -26,6 +30,12 @@
 
 \subsection{Test der vollständig implementierten Klasse KNNClassifier}
 
+\subsubsection{Ergebnisse der Test}
+
+\subsubsection{Warum sollte man für C = 2 Klassen immer ungerades k wählen?}
+
+Da wenn man bei C = 2 z.B. k = 2 wählt, es sein kann, dass einer der Nachbarn Label 0 und der andere Label 1 hat und der Merkmalsvektor somit beiden Klassen zu 50\% zugeordnet wird. Bei ungeradem k wird somit eine klare Klassentrennung
+gewährleistet.
 
 \subsection{Vervollständigung der von \textit{KNNClassifier} abgeleiteten Klasse \textit{FastKNNClassifier}}
 
