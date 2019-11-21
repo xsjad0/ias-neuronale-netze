@@ -1,0 +1,17 @@
+@startuml
+Class "Classifier" {
+
+}
+
+Class "KNNClassifier" {
+
+}
+
+Class "FastKNNClassifier" {
+
+}
+
+"Classifier" <|-- "KNNClassifier"
+"KNNClassifier" <|-- "FastKNNClassifier"
+
+@enduml

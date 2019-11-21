@@ -3,10 +3,16 @@
 \subsection{Allgemeine Fragen zur Evaluation eines Klassifikators}
 
 \subsubsection{Klassifikationsfehlerwahrscheinlichkeiten}
+Die Klassifikationsfehlerwahrscheinlichkeit ist 0, da es nur einen nächsten Nachbarn gibt und somit nur eine Klasse, die zugewiesen wird. 
+
 
 \subsubsection{Diskussion des Ergebnis der Klassifikationsfehlerwahrscheinlichkeit}
+Ja, da diese auch immer nur einen Nachbar haben und somit nur einr Klasse zugeordnet werden können.
 
 \subsubsection{Möglichkeiten, um einen realistischen Schätzwert des Generalisierungsfehlers zu erhalten}
+Man kann für k einen größeren Wert wählen. 
+\subsubsection{Begriff Kreuzvalidierung}
+Die Daten werden in S Teile aufgeteilt von denen immer ein Teil zur Validierung zurückgehalten wird. Dabei wird das Modell S mal trainiert. Am Ende erhält man dadurch den resultierenden Generalisierungsfehler.
 
 \subsection{Code-Review der Methode \textit{Classifier.crossvalidate(self, S, X, T)}}
 
@@ -104,11 +110,41 @@ pE\textunderscore naive: Wahrscheinlichkeit eines Klassifikationsfehlers\\
 pCE\textunderscore naive: Wahrheitsmatrix\\
 t\textunderscore naive: Berechnungszeit\\
 
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{files/aufgabe3c5.png}
+    \caption{Codevervollständigung}
+\end{figure}
+
 \subsection{Test der Kreuzvalidierung bzw. Klassifikationsleistung}
 
 \subsubsection{Bestimmung der Klassifikationsfehler und Verwechselwahrscheinlichkeiten}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{files/aufgabe3d1.jpg}
+    \caption{Wahrheitsmatrix}
+\end{figure}
+
 \subsubsection{Bestimmung der Klassenverteilung für drei weitere Testpunkte}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{files/aufgabe3d2.jpg}
+    \caption{Klassenwahrscheinlichkeiten}
+\end{figure}
 
 \subsection{Vergleich der Effizienz beider k-NN-Klassifikatoren}
 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{files/laufzeitknn.png}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{files/laufzeitknn2.png}
+\end{figure}
