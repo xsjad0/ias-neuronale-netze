@@ -1,39 +1,56 @@
-\section{Lineare Least-Squares Regression mit Regularisierung in Python}
+\section{Lineare Least-Squares Regression mit Regularisierung in Python}
 
 
 \subsection{
-    Betrachtung des Programmgerüst \textit{V2A1_LinearRegression.py}
+    Betrachtung des Programmgerüst \textit{V2A1\textunderscore LinearRegression.py}
 }
 
+\subsubsection{Erklärung der Funktionen: \textit{fun\textunderscore true(), generateDataSet(), getDataError(), phi\textunderscore polynomial()}}
 
+\textbf{fun\textunderscore true():} Berechnet die Funktionswerte der Parabel
+$y(x) = w0 + w1*x + w2*x$. Die X-Werte werden als Nx1-dimensionales np.array übergeben.
 
-\subsection{
-    Test der implementierten Python-Funktion
-}
+\noindent
+\vspace{5px}
+\textbf{generateDataset():} Fügt den von \textit{fun_true()} berechneten Funktionswerten ein Rauschen hinzu. Rückgabewerte sind die X-Werte sowie die Funktionswerte T mit Rauschen.
 
-\subsubsection{Erklärung der Funktionen: \textit{fun_true(), generateDataSet(), getDataError(), phi_polynomial()}}
+\noindent
+\vspace{5px}
+\textbf{getDataError():} Berechnet die Datenfehler (Least Squares) zwischen Vorhersagedaten und den aus \textit{generateDataSet()} erzeugten \textit{True Target-Werten}.
+
+\noindent
+\vspace{5px}
+\textbf{phi\textunderscore polinomial():} Generiert jeweils einen Merkmalsvektor phi\textunderscore x. In anderen Worten eine Zeile der Designmatrix PHI.
 
 \subsubsection{Von welcher Funktion sind die Original-Daten (xn, tn) gesampelt?}
 
-\subsubsection{Wie lauten die Basisfunktionen φj(x ) für j = 1, ...,deg des linearen Modells?}
+Die Python-Funktion \textit{fun\textunderscore true()} sampelt die Daten anhand der mathematischen Funktion $y(x) = w0 + w1*x + w2*x$.
+
+\subsubsection{Wie lauten die Basisfunktionen $phi_j(x)$ für j = 1, ...,deg des linearen Modells?}
+
+$phi_j (x) = (1 x x^2 x^3 .. x^deg)$
+Die Basisfunktion kann durch die Variable \textit{deg} angepasst werden.
 
 \subsubsection{Welche Rolle hat die Variable lmdba?}
+Durch geeignete Wahl von lmbda kann man die Überanpassung vermeiden.
+Dient demnach zur Regularisierung.
 
-\subsubsection{Worin unterscheiden sich die Variablen X,T von X_test,T_test?}
+\subsubsection{Worin unterscheiden sich die Variablen X,T von X\\textunderscore test,T\\textunderscore test?}
+Um die Qualität der ermittelten Regressions-Funktion zu prüfen, werden Trainingsdaten von Testdaten getrennt.
 
 \subsubsection{Was stellen im Plot die grünen Kreuze/Punkte, grüne Kurve, rote Kurve dar?}
+\textbf{Grüne Punkte:} stellen die generierten Testdatenpunkte dar.\\
+\textbf{Grüne Kreuze:} stellen die generierten Datenpunkte dar.\\
+\textbf{Grüne Kurve:} stellt die ursprüngliche Parabel-Funktion dar.\\
+\textbf{Rote Kurve:} stellt die ermittelte Trennkurve dar.
 
-\subsection{
-    Vervollständigung des Programm
-}
+\subsection{Vervollständigung des Programm}
 
-\subsubsection{Implementierung der Berechnung der regularisierten Least-Squares-Gewichte W_LSR als M x 1-Matrix}
+\subsubsection{Implementierung der Berechnung der regularisierten Least-Squares-Gewichte W\textunderscore LSR als M x 1-Matrix}
 
 \subsubsection{Implementierung der Berechnung der Prognosewerte Y als N x 1-Matrix}
 
-\subsection{
-    Programmtest ohne Regularisierung
-}
+\subsection{Programmtest ohne Regularisierung}
 
 \subsubsection{Welche optimalen Gewichte WLSR erhalten Sie für Polynomgrad 5? 
                 Wie groÿ ist der Lern-Datenfehler ED (WLSR)? 
@@ -43,6 +60,4 @@
 \subsubsection{Phänomene bei niedrigem bzw. hohem Polynomgrad}
 
 
-\subsection{
-    Programmtest mit Polynomgrad 9, N = 10 Daten und Regularisierung λ ≥ 0
-}
+\subsection{Programmtest mit Polynomgrad 9, N = 10 Daten und Regularisierung λ ≥ 0}
