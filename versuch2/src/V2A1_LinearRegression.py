@@ -73,9 +73,19 @@ print("W_LSR=", W_LSR)
 
 # (III) make predictions for training and test data
 # REPLACE THIS BY PROGNOSIS FOR TRAINING DATA X! (result should be N x 1 matrix, i.e., one prognosis per row)
+ymin, ymax = -50.0, 150.0               # interval of y data
+x_ = np.arange(xmin, xmax, 0.01)        # densely sampled x values
 Y_train = np.zeros((N, 1))
+Y_train = np.array([
+    np.dot(W_LSR.T, np.array([phi_polynomial(X[i], deg)]).T)
+    [0] for i in range(N)]
+)       # least squares prediction
 # REPLACE THIS BY PROGNOSIS FOR TEST DATA X_test! (result should be N x 1 matrix, i.e., one prognosis per row)
 Y_test = np.zeros((N, 1))
+Y_test = np.array([
+    np.dot(W_LSR.T, np.array([phi_polynomial(X_test[i], deg)]).T)
+    [0] for i in range(N)]
+)       # least squares prediction
 print("Y_test=", Y_test)
 print("T_test=", T_test)
 print("training data error = ", getDataError(Y_train, T))
@@ -89,6 +99,8 @@ x_ = np.arange(xmin, xmax, 0.01)        # densely sampled x values
 Y_LSR = np.array([np.dot(W_LSR.T, np.array([phi_polynomial([x], deg)]).T)[
                  0] for x in x_])       # least squares prediction
 Y_true = fun_true(x_).flat
+
+print("Y_LSR=", Y_LSR)
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
