@@ -72,7 +72,6 @@ W_LSR = np.dot(np.dot(PHITPHI_lambdaI_inv, np.transpose(PHI)), T)
 print("W_LSR=", W_LSR)
 
 # (III) make predictions for training and test data
-# REPLACE THIS BY PROGNOSIS FOR TRAINING DATA X! (result should be N x 1 matrix, i.e., one prognosis per row)
 ymin, ymax = -50.0, 150.0               # interval of y data
 x_ = np.arange(xmin, xmax, 0.01)        # densely sampled x values
 Y_train = np.zeros((N, 1))
@@ -80,7 +79,7 @@ Y_train = np.array([
     np.dot(W_LSR.T, np.array([phi_polynomial(X[i], deg)]).T)
     [0] for i in range(N)]
 )       # least squares prediction
-# REPLACE THIS BY PROGNOSIS FOR TEST DATA X_test! (result should be N x 1 matrix, i.e., one prognosis per row)
+
 Y_test = np.zeros((N, 1))
 Y_test = np.array([
     np.dot(W_LSR.T, np.array([phi_polynomial(X_test[i], deg)]).T)
@@ -101,6 +100,54 @@ Y_LSR = np.array([np.dot(W_LSR.T, np.array([phi_polynomial([x], deg)]).T)[
 Y_true = fun_true(x_).flat
 
 print("Y_LSR=", Y_LSR)
+
+
+# v2a1c3
+list_deg = [1, 2, 4, 6, 9, 11, 13]
+mean_weights_wlsr = []
+for d in list_deg:
+    PHI = np.array([phi_polynomial(X[i], d).T for i in range(N)])
+    N, M = np.shape(PHI)
+    PHITPHI_lambdaI_inv = np.linalg.inv(
+        np.dot(np.transpose(PHI), PHI)+lmbda*np.eye(M))
+    WLSR = np.dot(np.dot(PHITPHI_lambdaI_inv, np.transpose(PHI)), T)
+    m_weights = np.mean(np.abs(WLSR))
+
+    mean_weights_wlsr = mean_weights_wlsr + [m_weights]
+
+deg = 9
+Ns = [10, 100, 1000, 10000]
+for n in Ns:
+    X, T = generateDataSet(n, xmin, xmax, sd_noise)
+    X_test, T_test = generateDataSet(
+        n, xmin, xmax, sd_noise)             # generate test data
+    # print("X=", X, "T=", T)
+    PHI = np.array([phi_polynomial(X[i], deg).T for i in range(n)])
+    N, M = np.shape(PHI)
+    PHITPHI_lambdaI_inv = np.linalg.inv(
+        np.dot(np.transpose(PHI), PHI)+lmbda*np.eye(M))
+    WLSR = np.dot(np.dot(PHITPHI_lambdaI_inv, np.transpose(PHI)), T)
+
+    ymin, ymax = -50.0, 150.0               # interval of y data
+    x_ = np.arange(xmin, xmax, 0.01)        # densely sampled x values
+    Y_train = np.zeros((N, 1))
+    Y_train = np.array([
+        np.dot(WLSR.T, np.array([phi_polynomial(X[i], deg)]).T)
+        [0] for i in range(n)]
+    )       # least squares prediction
+    Y_test = np.zeros((n, 1))
+    Y_test = np.array([
+        np.dot(WLSR.T, np.array([phi_polynomial(X_test[i], deg)]).T)
+        [0] for i in range(n)]
+    )       # least squares prediction
+    print("N=", n)
+    # print("Y_test=", Y_test)
+    # print("T_test=", T_test)
+    print("training data error = ", getDataError(Y_train, T)/n)
+    print("test data error = ", getDataError(Y_test, T_test)/n)
+    # print("W_LSR=", WLSR)
+    print("mean weight = ", np.mean(np.abs(WLSR)))
+    print("\n")
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
