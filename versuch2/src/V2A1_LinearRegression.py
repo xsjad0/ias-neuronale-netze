@@ -79,6 +79,7 @@ Y_train = np.array([
     np.dot(W_LSR.T, np.array([phi_polynomial(X[i], deg)]).T)
     [0] for i in range(N)]
 )       # least squares prediction
+
 Y_test = np.zeros((N, 1))
 Y_test = np.array([
     np.dot(W_LSR.T, np.array([phi_polynomial(X_test[i], deg)]).T)
@@ -99,6 +100,7 @@ Y_LSR = np.array([np.dot(W_LSR.T, np.array([phi_polynomial([x], deg)]).T)[
 Y_true = fun_true(x_).flat
 
 print("Y_LSR=", Y_LSR)
+
 
 # v2a1c3
 list_deg = [1, 2, 4, 6, 9, 11, 13]
