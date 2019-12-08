@@ -239,7 +239,7 @@ class LSRRegressifier(Regressifier):
         if flagSTD==None: flagSTD=self.flagSTD      # standardization?
         if flagSTD>0: x=self.datascalerX.scale(x)   # if yes, then scale x before computing the prediction!
         phi_of_x = self.phi(x)                      # compute feature vector phi_of_x for data vector x
-        y=np.zeros((1,self.K)).T                    # REPLACE dummy code:  compute prediction y for data vector x 
+        y=np.dot(np.transpose(self.W_LSR), phi_of_x)                   # REPLACE dummy code:  compute prediction y for data vector x 
         if flagSTD>0: y=self.datascalerT.unscale(y) # scale prediction back to original range?
         return y                  # return prediction y for data vector x
 
