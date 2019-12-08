@@ -20,26 +20,25 @@
 \BOOKMARK [3][-]{subsubsection.2.1.3}{ Unterschied zwischen crossvalidate\(.\) und der entsprechenden Methode f\374r Klassifikation}{subsection.2.1}% 20
 \BOOKMARK [2][-]{subsection.2.2}{ Betrachtung der Funktion phi\137polynominal\(x,deg\) }{section.2}% 21
 \BOOKMARK [3][-]{subsubsection.2.2.1}{ Berechnung und Ergebnis von phi\137polynominal\(x,deg\) f\374r verschiedene Werte}{subsection.2.2}% 22
-\BOOKMARK [3][-]{subsubsection.2.2.2}{ Allgemeine Formel f\374r phi\137polynomial\([x1,x2],2\) }{subsection.2.2}% 23
-\BOOKMARK [3][-]{subsubsection.2.2.3}{ Wozu braucht man diese Funktion im Zusammenhang mit Regression? }{subsection.2.2}% 24
-\BOOKMARK [3][-]{subsubsection.2.2.4}{ Bis zu welchem Polynomgrad kann die Funktion Basisfunktionen berechnen? }{subsection.2.2}% 25
-\BOOKMARK [3][-]{subsubsection.2.2.5}{ Erweiterung bis zu Grad 5: }{subsection.2.2}% 26
-\BOOKMARK [2][-]{subsection.2.3}{ Betrachtung der Klasse LSRRegressifier }{section.2}% 27
-\BOOKMARK [3][-]{subsubsection.2.3.1}{ Art des Regressionsmodells: }{subsection.2.3}% 28
-\BOOKMARK [3][-]{subsubsection.2.3.2}{ Parameter lmbda,phi,flagSTD und eps }{subsection.2.3}% 29
-\BOOKMARK [3][-]{subsubsection.2.3.3}{ Funktion der Klasse DataScaler: }{subsection.2.3}% 30
-\BOOKMARK [3][-]{subsubsection.2.3.4}{ Wozu braucht man die Variablen Z und maxZ in der Methode fit\(.\)? }{subsection.2.3}% 31
-\BOOKMARK [3][-]{subsubsection.2.3.5}{ Vervollst\344ndigung der Methoden fit\(self,X,T,...\) und predict\(self,x,...\) }{subsection.2.3}% 32
-\BOOKMARK [2][-]{subsection.2.4}{ Betrachtung der Klasse KNNRegressifier }{section.2}% 33
-\BOOKMARK [3][-]{subsubsection.2.4.1}{ Art des Regressionsmodells: }{subsection.2.4}% 34
-\BOOKMARK [3][-]{subsubsection.2.4.2}{ Parameter K und flagKLinReg }{subsection.2.4}% 35
-\BOOKMARK [3][-]{subsubsection.2.4.3}{ Beschreibung der Pr\344diktion y\(x1\) }{subsection.2.4}% 36
-\BOOKMARK [2][-]{subsection.2.5}{ Betrachtung des Modultests }{section.2}% 37
-\BOOKMARK [3][-]{subsubsection.2.5.1}{ Beschreibung des Modultests: }{subsection.2.5}% 38
-\BOOKMARK [3][-]{subsubsection.2.5.2}{ Welche Gewichte W werden gelernt? Wie lautet die gelernte Pr\344diktionsfunktion? Welche Funktion sollte sich idealerweise f\374r \(N\) ergeben? }{subsection.2.5}% 39
-\BOOKMARK [3][-]{subsubsection.2.5.3}{ Ergebnisse der Kreuzvalidierung und Bedeutung der Werte }{subsection.2.5}% 40
-\BOOKMARK [3][-]{subsubsection.2.5.4}{ Vergleich von Least Squares Regression und KNN-Regression }{subsection.2.5}% 41
-\BOOKMARK [1][-]{section.3}{Lineare Regression auf Airfoil-Noise-Daten}{}% 42
-\BOOKMARK [2][-]{subsection.3.1}{ Vervollst\344ndigung des Programmger\374st V2A3regressionairfoilnoise.py um eine Least-Squares-Regression }{section.3}% 43
-\BOOKMARK [2][-]{subsection.3.2}{ Vervollst\344ndigung des Programmger\374st V2A3regressionairfoilnoise.py um eine KNN-Regression }{section.3}% 44
-\BOOKMARK [2][-]{subsection.3.3}{ Vergleich beider Modelle }{section.3}% 45
+\BOOKMARK [3][-]{subsubsection.2.2.2}{ Wozu braucht man diese Funktion im Zusammenhang mit Regression? }{subsection.2.2}% 23
+\BOOKMARK [3][-]{subsubsection.2.2.3}{ Bis zu welchem Polynomgrad kann die Funktion Basisfunktionen berechnen? }{subsection.2.2}% 24
+\BOOKMARK [3][-]{subsubsection.2.2.4}{ Erweiterung bis zu Grad 5: }{subsection.2.2}% 25
+\BOOKMARK [2][-]{subsection.2.3}{ Betrachtung der Klasse LSRRegressifier }{section.2}% 26
+\BOOKMARK [3][-]{subsubsection.2.3.1}{ Art des Regressionsmodells: }{subsection.2.3}% 27
+\BOOKMARK [3][-]{subsubsection.2.3.2}{ Parameter lmbda,phi,flagSTD und eps }{subsection.2.3}% 28
+\BOOKMARK [3][-]{subsubsection.2.3.3}{ Funktion der Klasse DataScaler: }{subsection.2.3}% 29
+\BOOKMARK [3][-]{subsubsection.2.3.4}{ Wozu braucht man die Variablen Z und maxZ in der Methode fit\(.\)? }{subsection.2.3}% 30
+\BOOKMARK [3][-]{subsubsection.2.3.5}{ Vervollst\344ndigung der Methoden fit\(self,X,T,...\) und predict\(self,x,...\) }{subsection.2.3}% 31
+\BOOKMARK [2][-]{subsection.2.4}{ Betrachtung der Klasse KNNRegressifier }{section.2}% 32
+\BOOKMARK [3][-]{subsubsection.2.4.1}{ Art des Regressionsmodells: }{subsection.2.4}% 33
+\BOOKMARK [3][-]{subsubsection.2.4.2}{ Parameter K und flagKLinReg }{subsection.2.4}% 34
+\BOOKMARK [3][-]{subsubsection.2.4.3}{ Berechnung der Pr\344diktion y\(x1\) }{subsection.2.4}% 35
+\BOOKMARK [2][-]{subsection.2.5}{ Betrachtung des Modultests }{section.2}% 36
+\BOOKMARK [3][-]{subsubsection.2.5.1}{ Beschreibung des Modultests: }{subsection.2.5}% 37
+\BOOKMARK [3][-]{subsubsection.2.5.2}{ Welche Gewichte W werden gelernt? Wie lautet die gelernte Pr\344diktionsfunktion? Welche Funktion sollte sich idealerweise f\374r \(N\) ergeben? }{subsection.2.5}% 38
+\BOOKMARK [3][-]{subsubsection.2.5.3}{ Ergebnisse der Kreuzvalidierung und Bedeutung der Werte }{subsection.2.5}% 39
+\BOOKMARK [3][-]{subsubsection.2.5.4}{ Vergleich von Least Squares Regression und KNN-Regression }{subsection.2.5}% 40
+\BOOKMARK [1][-]{section.3}{Lineare Regression auf Airfoil-Noise-Daten}{}% 41
+\BOOKMARK [2][-]{subsection.3.1}{ Vervollst\344ndigung des Programmger\374st V2A3regressionairfoilnoise.py um eine Least-Squares-Regression }{section.3}% 42
+\BOOKMARK [2][-]{subsection.3.2}{ Vervollst\344ndigung des Programmger\374st V2A3regressionairfoilnoise.py um eine KNN-Regression }{section.3}% 43
+\BOOKMARK [2][-]{subsection.3.3}{ Vergleich beider Modelle }{section.3}% 44
