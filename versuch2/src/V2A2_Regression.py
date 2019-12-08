@@ -212,17 +212,17 @@ class LSRRegressifier(Regressifier):
         # (iii) compute weight matrix and check numerical condition
         flagOK,maxZ=1,0;                       # if <1 then matrix inversion is numerically infeasible
         try:
-            self.N,self.D = X.shape            # data matrix X has size N x D (N is number of data vectors, D is dimension of a vector)
-            self.M = self.phi(self.D*[0]).size # get number of basis functions  
-            self.K = T.shape[1]                # DELTE dummy code (just required for dummy code in predict(.): number of output dimensions
-            PHI = None                         # REPLACE dummy code: compute design matrix
-            PHIT_PHI_lmbdaI = None             # REPLACE dummy code: compute PHI_T*PHI+lambda*I
-            PHIT_PHI_lmbdaI_inv = None         # REPLACE dummy code: compute inverse matrix (may be bad conditioned and fail)
-            self.W_LSR = None                  # REPLACE dummy code: compute regularized least squares weights 
+            self.N,self.D = X.shape                                                             # data matrix X has size N x D (N is number of data vectors, D is dimension of a vector)
+            self.M = self.phi(self.D*[0]).size                                                  # get number of basis functions  
+            PHI = (np.array([phi(x) for x in X])   )                                            # REPLACE dummy code: compute design matrix
+            PHIT_PHI_lmbdaI = np.dot(PHI.T, PHI)+lmbda*np.eye(PHI.shape[1], PHI.shape[1])       # REPLACE dummy code: compute PHI_T*PHI+lambda*I
+            PHIT_PHI_lmbdaI_inv = np.linalg.inv(PHIT_PHI_lmbdaI)                                # REPLACE dummy code: compute inverse matrix (may be bad conditioned and fail)
+            self.W_LSR = np.dot(np.dot(PHIT_PHI_lmbdaI_inv, PHI.T),T)                           # REPLACE dummy code: compute regularized least squares weights 
             # (iv) check numerical condition
-            Z=None                             # REPLACE dummy code: Compute Z:=PHIT_PHI_lmbdaI*PHIT_PHI_lmbdaI_inv-I which should become the zero matrix if good conditioned!
-            maxZ = 0                           # REPLACE dummy code: Compute maximum (absolute) componente of matrix Z (should be <eps for good conditioned problem)
-            assert maxZ<=self.eps              # maxZ should be <eps for good conditioned problems (otherwise the result cannot be trusted!!!)
+            Z = np.dot(PHIT_PHI_lmbdaI, PHIT_PHI_lmbdaI_inv)-np.eye(PHIT_PHI_lmbdaI.shape[0], PHIT_PHI_lmbdaI.shape[0])                             # REPLACE dummy code: Compute Z:=PHIT_PHI_lmbdaI*PHIT_PHI_lmbdaI_inv-I which should become the zero matrix if good conditioned!
+            print(Z)
+            maxZ = np.amax(Z)                                                                   # REPLACE dummy code: Compute maximum (absolute) componente of matrix Z (should be <eps for good conditioned problem)
+            assert maxZ<=self.eps                                                               # maxZ should be <eps for good conditioned problems (otherwise the result cannot be trusted!!!)
         except: 
             flagOK=0;
             print("EXCEPTION DUE TO BAD CONDITION:flagOK=", flagOK, " maxZ=", maxZ)
