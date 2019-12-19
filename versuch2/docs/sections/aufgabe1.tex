@@ -12,7 +12,7 @@ $y(x) = w0 + w1*x + w2*x$. Die X-Werte werden als Nx1-dimensionales np.array üb
 
 \noindent
 \vspace{5px}
-\textbf{generateDataset():} Fügt den von \textit{fun_true()} berechneten Funktionswerten ein Rauschen hinzu. Rückgabewerte sind die X-Werte sowie die Funktionswerte T mit Rauschen.
+\textbf{generateDataset():} Fügt den von \textit{fun\textunderscore true()} berechneten Funktionswerten ein Rauschen hinzu. Rückgabewerte sind die X-Werte sowie die Funktionswerte T mit Rauschen.
 
 \noindent
 \vspace{5px}
@@ -31,7 +31,7 @@ Die Python-Funktion \textit{fun\textunderscore true()} sampelt die Daten anhand 
 $phi_j (x) = (1 x x^2 x^3 .. x^deg)$
 Die Basisfunktion kann durch die Variable \textit{deg} angepasst werden.
 
-\subsubsection{Welche Rolle hat die Variable lmdba?}
+\subsubsection{Welche Rolle hat die Variable lambda?}
 Durch geeignete Wahl von lmbda kann man die Überanpassung vermeiden.
 Dient demnach zur Regularisierung.
 
@@ -60,4 +60,6 @@ Um die Qualität der ermittelten Regressions-Funktion zu prüfen, werden Trainin
 \subsubsection{Phänomene bei niedrigem bzw. hohem Polynomgrad}
 
 
-\subsection{Programmtest mit Polynomgrad 9, N = 10 Daten und Regularisierung λ ≥ 0}
+\subsection{Programmtest mit Polynomgrad 9, N = 10 Daten und Regularisierung $\lambda \ge 0$}
+
+
