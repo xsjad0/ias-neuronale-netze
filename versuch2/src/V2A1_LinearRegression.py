@@ -69,6 +69,7 @@ PHITPHI_lambdaI_inv = np.linalg.inv(
     np.dot(np.transpose(PHI), PHI)+lmbda*np.eye(M))
 
 W_LSR = np.dot(np.dot(PHITPHI_lambdaI_inv, np.transpose(PHI)), T)
+
 print("W_LSR=", W_LSR)
 
 # (III) make predictions for training and test data
@@ -114,6 +115,9 @@ for d in list_deg:
     m_weights = np.mean(np.abs(WLSR))
 
     mean_weights_wlsr = mean_weights_wlsr + [m_weights]
+
+    print("Deg=", d)
+    print("Mittlere Gewichte=", mean_weights_wlsr)
 
 deg = 9
 Ns = [10, 100, 1000, 10000]
