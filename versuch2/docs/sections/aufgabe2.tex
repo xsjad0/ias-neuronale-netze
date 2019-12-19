@@ -19,7 +19,7 @@
 
 \noindent
  \vspace{0px}
-\textbf{crossvalidate(self,S,X,T):} Führt die Kreuzvalidierung durch.
+\textbf{crossvalidate(self,S,X,T):} Führt die Kreuzvalidierung durch. So können die Standardabweichung, der Mittelwert, Maximum und Minimum der Abweichung von den bekannten Zielwerten zu den durch den Regressifier prognostizierten Werten bestimmt werden. 
 
 
 \subsubsection{ Unterschied  zwischen \textit{crossvalidate(.)} und der entsprechenden Methode für Klassifikation}
@@ -51,7 +51,7 @@ Transformiert einen Datenvektor x in einen Merkmalsvektor $\phi (x)$ mit dem Gra
 
 \noindent
  \vspace{0px}
-Man benötigt sie, um aus dem Vektor der Basisfunktionen die Designmatrix zu berechnen, mit welcher später die Normalgleichung aufgesytellt wird. 
+Man benötigt sie, um aus dem Vektor der Basisfunktionen die Designmatrix zu berechnen, mit welcher später die Normalgleichung aufgestellt wird. 
 
 \subsubsection{ Bis zu welchem Polynomgrad kann die Funktion Basisfunktionen berechnen? }
 
@@ -76,12 +76,15 @@ Der LSRRegressifier dient zum Minimieren der Least-Squares-Fehlerfunktion mit qu
 \noindent
 \vspace{0px}
 \textbf{lambda:} Regularisierungskoeffizient. Gibt die relative Gewichtung zwischen dem Daten-Fehler und Gewichts-Fehler an. 
+\newline
 \noindent
 \vspace{0px}
 \textbf{phi:} Vektor der Basisfunktionen aus dem die Designmatrix berechnet werden kann. 
+\newline
 \noindent
 \vspace{0px}
 \textbf{flagSTD:} wird flagSTD>0 gewählt, werden die Daten auf einen Mittelwert = 0 und eine Standardabweichung = 1 skaliert.  
+\newline
 \noindent
 \vspace{0px}
 \textbf{eps:} gibt die maximale Abweichung der Zielwerte von den prognostizierten Werten des linearen Modells an. 
@@ -136,18 +139,45 @@ Ansonsten wird die lineare Regression auf die KNNs angewendet.
 
 \subsubsection{ Berechnung der Prädiktion \textit{$y(x_1)$} }
 
-\noindent
- \vspace{0px}
 Die Methode \textit{predict(self,x,K=None,flagKLinReg=None)} holt sich zunächst die Indizes der K nächsten Nachbarn. 
 Falls \textit{ flagKLinReg }=0 ist, wird mithilfe der Indizes einfach der Mittelwert der Klassenlabels T berechnet und zurückgegeben. 
 Falls \textit{ flagKLinReg }>0 ist, wird die Klasse LSRRegressifier aufgerufen, welche zunächst mit \textit{ fit() } die Designmatrix, Gewichte, Abweichung der Zielwerte etc. berechnet und dann mit \textit{ predict() } die Zielwerte für den Textvektor x berechnet. 
 
 \subsection{Betrachtung des Modultests}
-
+ 
 \subsubsection{Beschreibung des Modultests}
+
+Zunächst werden die Datenvektoren in Matrix X und deren zugehörige Zielvektoren in Matrix T erstellt. Dann wird die Basisfunktion mithilfe der Funktion {phi\textunderscore polynomial()} erstellt.
+Danach wird mit der Klasse LSRRegressifier die lineare Regression durchgeführt und anschließend mit der Funktion \textit{crossvalidate()} die absoluten und relativen Fehler berechnet. 
+Dasselbe wird mit der Klasse KNNRegressifier gemacht. 
 
 \subsubsection{Welche Gewichte \textit{W} werden gelernt? Wie lautet die gelernte Prädiktionsfunktion? Welche Funktion sollte sich idealerweise für \textit{($N \rightarrow \infty)$} ergeben?}
 
+\textbf{LSRRegressifier: } \textit{W\textunderscore LSR} = [[3.80765289e+00][2.01310589e+00][7.54074899e-06]]
+ \newline
+\noindent
+ \vspace{0px}
+ Idealerweise sollte \textit{w0} = 4 und \textit{w1} = 2 sein.
 \subsubsection{ Ergebnisse der Kreuzvalidierung und Bedeutung der Werte }
+\noindent
+ \vspace{0px}
+ \textbf{LSRRegressifier absolute Fehler: }0.8704986403938275, 0.607099912625734, 0.011102387248136836, 2.383898060556959 
+ \newline
+ \noindent
+ \vspace{0px}
+ \textbf{LSRRegressifier relative Fehler:}0.030849689058524504, 0.0680218843604184, 0.00019798594826910175, 0.6493162883685134
+ \newline
+\noindent
+ \vspace{0px}
+ \textbf{KNNRegressifier absolute Fehler: }1.4179778720053478, 1.411877162711756, 0.0013203224739655184, 8.745907490993238
+ \newline
+ \noindent
+ \vspace{0px}
+ \textbf{KNNRegressifier relative Fehler:}0.09645365677134916, 0.37218277531098504, 3.388085107667566e-05, 2.9753447935392856
+ \noindent
+ \vspace{0px}
+ \newline
+ Die Kreuzvalidierung hält immer einen Teil der Daten zurück, zu denen die \dq echten \dq Zielwerte bekannt sind. Dadurch kann der trainierte Regressifier gestestet. 
+ So können die Standardabweichung, der Mittelwert, Maximum und Minimum der Abweichung von den bekannten zu den durch den Regressifier prognostizierten Werten bestimmt werden. 
 
-\subsubsection{ Vergleich von Least Squares Regression und KNN-Regression }
+ 
